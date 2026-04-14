@@ -7,6 +7,13 @@ let comidaX = 0;
 let comidaY = 0;
 let comidaAncho = 100;
 let comidaAlto = 100;
+let puntos = 0
+
+let gatoAncho = canvas.width / 4;
+let gatoAlgrgo = canvas.height / 8 + 50;
+
+let tiempoRestante = 10;
+let intervaloTiempo;
 
 function limpiarCanva() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -14,7 +21,7 @@ function limpiarCanva() {
 
 function graficarGato() {
     ctx.fillStyle = "#0b49e8";
-    ctx.fillRect(gatoX, gatoY, canvas.height / 4, canvas.width / 8 + 50, canvas.height / 4);
+    ctx.fillRect(gatoX, gatoY, canvas.height / 4, canvas.width / 4);
 }
 
 function graficarComida() {
@@ -63,6 +70,7 @@ function moverAbajo() {
     detectarColision();
 }
 
+
 function detectarColision() {
 
     let gatoAncho = canvas.width * 2 / 4 + 50;
@@ -74,11 +82,19 @@ function detectarColision() {
         gatoY < comidaY + comidaAlto &&
         gatoY + gatoAlto > comidaY
     ) {
-        alert("¡El gato atrapó la comida!");
+       puntos++;
+       mostrarEnSpan("puntos", puntos);
+       comidaX = generarAleatorio(0, canvas.width - comidaAncho);
+       comidaY = generarAleatorio(0, canvas.height - comidaAlto);
+        alert("¡El gato atrapó la comida!"+ puntos);
+        limpiarCanva();
+        graficarComida();
+        graficarGato();
     }
 }
 
 function iniciarJuego() {
+    
     graficarGato();
     graficarComida();
 }
