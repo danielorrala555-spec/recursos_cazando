@@ -8,7 +8,6 @@ let comidaY = 0;
 let comidaAncho = 100;
 let comidaAlto = 100;
 let puntos = 0
-
 let tiempoRestante = 10;
 let intervaloTiempo;
 
@@ -28,45 +27,41 @@ function graficarComida() {
 
 function moverIzquierda() {
     gatoX -= 10;
-
     limpiarCanva();     
     graficarComida();  
     graficarGato();   
-    
     detectarColision();
 }
 
 
 function moverDerecha() {
     gatoX += 10;
-
     limpiarCanva();     
     graficarComida();  
-    graficarGato();   
-    
+    graficarGato();      
     detectarColision();
 }
 
 function moverArriba() {
     gatoY -= 10;
-
     limpiarCanva();     
     graficarComida();  
     graficarGato();   
-
     detectarColision(); 
 }
 
 function moverAbajo() {
     gatoY += 10;
-
     limpiarCanva();     
     graficarComida();  
     graficarGato();   
-    
     detectarColision();
 }
 
+function terminarJuego(mensaje) {
+clearInterval(intervaloTiempo);
+alert(mensaje);
+}
 
 function detectarColision() {
 
@@ -81,6 +76,11 @@ function detectarColision() {
     ) {
        puntos++;
        mostrarEnSpan("puntos", puntos);
+        if (puntos >= 6) {
+        limpiarCanva();
+        terminarJuego("¡Ganaste! Atrapaste 6 comidas.");
+        return;
+    }
        comidaX = generarAleatorio(0, canvas.width - comidaAncho);
        comidaY = generarAleatorio(0, canvas.height - comidaAlto);
         alert("¡El gato atrapó la comida!"+ puntos);
@@ -96,11 +96,19 @@ function restarTiempo() {
      mostrarEnSpan("tiempo", tiempoRestante); 
      if (tiempoRestante <= 0) {
          clearInterval(intervaloTiempo); 
-         alert("¡Tiempo agotado! Puntos obtenidos: " + puntos);
+         alert("¡GAME OVER! Puntos obtenidos: " + puntos);
     }
 }
 function iniciarJuego() {
     
+    let gatoX = canvas.width / 4; 
+    let gatoY = canvas.height / 4;
+    let comidaX = 0;
+    let comidaY = 0;
+    let comidaAncho = 100;
+    let comidaAlto = 100;
+    let puntos = 0
+    let tiempoRestante = 10;
     graficarGato();
     graficarComida();
     intervaloTiempo = setInterval(restarTiempo, 1000);
