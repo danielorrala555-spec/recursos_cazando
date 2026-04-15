@@ -9,9 +9,6 @@ let comidaAncho = 100;
 let comidaAlto = 100;
 let puntos = 0
 
-let gatoAncho = canvas.width / 4;
-let gatoAlgrgo = canvas.height / 8 + 50;
-
 let tiempoRestante = 10;
 let intervaloTiempo;
 
@@ -93,8 +90,19 @@ function detectarColision() {
     }
 }
 
+
+function restarTiempo() {
+     tiempoRestante--;
+     mostrarEnSpan("tiempo", tiempoRestante); 
+     if (tiempoRestante <= 0) {
+         clearInterval(intervaloTiempo); 
+         alert("¡Tiempo agotado! Puntos obtenidos: " + puntos);
+    }
+}
 function iniciarJuego() {
     
     graficarGato();
     graficarComida();
+    intervaloTiempo = setInterval(restarTiempo, 1000);
+
 }
