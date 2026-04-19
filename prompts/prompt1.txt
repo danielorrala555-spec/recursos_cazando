@@ -1,3 +1,6 @@
 prompt 1:
    .Modifica los archivos para tener una estética Arcade  minimalista con una clara referencia en el diseño
    a este personaje (colocar imagen de referncia).
+prompt 2:
+   .que  el botón izquierda y arriba estén de color amarillo, el de la derecha verde, abajo azul y agrega 
+   la última imagen de fondo (agregar imagen).
