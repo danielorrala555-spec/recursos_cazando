@@ -5,10 +5,10 @@ let gatoX = canvas.width / 4;
 let gatoY = canvas.height / 4;
 let comidaX = 0;
 let comidaY = 0;
-let comidaAncho = 100;
-let comidaAlto = 100;
+let comidaAncho = 60;
+let comidaAlto = 60;
 let puntos = 0
-let tiempoRestante = 10;
+let tiempoRestante = 30;
 let intervaloTiempo;
 
 function limpiarCanva() {
@@ -17,7 +17,7 @@ function limpiarCanva() {
 
 function graficarGato() {
     ctx.fillStyle = "#0b49e8";
-    ctx.fillRect(gatoX, gatoY, canvas.height / 4, canvas.width / 4);
+    ctx.fillRect(gatoX, gatoY, canvas.height / 6, canvas.width / 6);
 }
 
 function graficarComida() {
@@ -108,7 +108,7 @@ function iniciarJuego() {
     let comidaAncho = 100;
     let comidaAlto = 100;
     let puntos = 0
-    let tiempoRestante = 10;
+    let tiempoRestante;
     graficarGato();
     graficarComida();
     intervaloTiempo = setInterval(restarTiempo, 1000);

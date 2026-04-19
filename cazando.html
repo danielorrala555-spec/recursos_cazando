@@ -1,34 +1,60 @@
 <!DOCTYPE html>
+
 <html>
 <head>
   <script src="utils.js"></script>
   <link rel="stylesheet" href="cazando.css" />
   <title>Juego Cazando</title>
- 
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body onload="iniciarJuego();">
- 
+
+  <div class="bmo-screen-frame">
+    <div class="bmo-face-dots">
+      <span></span><span></span><span></span>
+      <span></span><span></span><span></span>
+    </div>
+
+```
+<div class="screen-bezel">
   <h1>Juego Cazando</h1>
-  <p>Autor: Miguel Orellana</p>
+  <p class="autor">Autor: Miguel Orellana</p>
   <canvas id="areaJuego" width="500" height="500"></canvas>
- 
+</div>
+
+<div class="bmo-body-bottom">
   <div class="controles">
-    <button onclick="moverArriba()">⬆</button>
-    <br>
-    <button onclick="moverIzquierda()">⬅</button>
-    <button onclick="moverAbajo()">⬇</button>
-    <button onclick="moverDerecha()">➡</button>
+    <button class="btn-up" onclick="moverArriba()">⬆</button>
+    <div class="btn-row">
+      <button class="btn-left"  onclick="moverIzquierda()">⬅</button>
+      <button class="btn-down"  onclick="moverAbajo()">⬇</button>
+      <button class="btn-right" onclick="moverDerecha()">➡</button>
+    </div>
   </div>
- 
- 
-  <div class="panel">
-    <span>Puntos: <span id="puntos">0</span></span>
-    <span>Tiempo: <span id="tiempo">10</span></span>
+
+  <div class="side-panel">
+    <div class="panel">
+      <span>Puntos: <span id="puntos">0</span></span>
+      <span>Tiempo: <span id="tiempo">10</span></span>
+    </div>
+    <button class="btn-restart" onclick="iniciarJuego()">reiniciar</button>
+    <p id="mensaje"></p>
   </div>
- 
-  <button onclick="iniciarJuego()">reiniciar</button>
-  <p id="mensaje"></p>
- 
+
+  <div class="action-buttons">
+    <button class="btn-action btn-green">▲</button>
+    <button class="btn-action btn-red">●</button>
+  </div>
+</div>
+
+<div class="bmo-bottom-bar">
+  <div class="bmo-smile"></div>
+</div>
+```
+
+  </div>
+
   <script src="cazando.js"></script>
+
 </body>
 </html>
