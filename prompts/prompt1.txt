@@ -1,0 +1,3 @@
+prompt 1:
+   .Modifica los archivos para tener una estética Arcade  minimalista con una clara referencia en el diseño
+   a este personaje (colocar imagen de referncia).
